@@ -1,0 +1,597 @@
+Classic Timing Analyzer report for de1_top
+Wed Dec 28 20:49:47 2016
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLOCK_50'
+  7. tco
+  8. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                   ;
++------------------------------+-------+---------------+----------------------------------+---------------+----------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From          ; To       ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+---------------+----------+------------+----------+--------------+
+; Worst-case tco               ; N/A   ; None          ; 21.821 ns                        ; cnt[3]        ; VGA_R[1] ; CLOCK_50   ; --       ; 0            ;
+; Clock Setup: 'CLOCK_50'      ; N/A   ; None          ; 180.73 MHz ( period = 5.533 ns ) ; line_count[6] ; vblank   ; CLOCK_50   ; CLOCK_50 ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;               ;          ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+---------------+----------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK_50        ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK_50'                                                                                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+----------------+---------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From           ; To            ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------+---------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 180.73 MHz ( period = 5.533 ns )                    ; line_count[6]  ; vblank        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.512 ns                ;
+; N/A                                     ; 192.83 MHz ( period = 5.186 ns )                    ; line_count[8]  ; vblank        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.165 ns                ;
+; N/A                                     ; 199.16 MHz ( period = 5.021 ns )                    ; line_count[5]  ; vblank        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.000 ns                ;
+; N/A                                     ; 205.04 MHz ( period = 4.877 ns )                    ; line_count[7]  ; vblank        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 1.856 ns                ;
+; N/A                                     ; 210.26 MHz ( period = 4.756 ns )                    ; cnt[9]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.517 ns                ;
+; N/A                                     ; 210.84 MHz ( period = 4.743 ns )                    ; cnt[7]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.504 ns                ;
+; N/A                                     ; 213.86 MHz ( period = 4.676 ns )                    ; cnt[9]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.437 ns                ;
+; N/A                                     ; 214.22 MHz ( period = 4.668 ns )                    ; line_count[9]  ; vblank        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 1.647 ns                ;
+; N/A                                     ; 214.45 MHz ( period = 4.663 ns )                    ; cnt[7]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.424 ns                ;
+; N/A                                     ; 215.15 MHz ( period = 4.648 ns )                    ; cnt[8]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.409 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 215.98 MHz ( period = 4.630 ns )                    ; pixel_count[7] ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 216.22 MHz ( period = 4.625 ns )                    ; cnt[5]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.386 ns                ;
+; N/A                                     ; 217.63 MHz ( period = 4.595 ns )                    ; cnt[6]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.356 ns                ;
+; N/A                                     ; 217.91 MHz ( period = 4.589 ns )                    ; a              ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.351 ns                ;
+; N/A                                     ; 218.91 MHz ( period = 4.568 ns )                    ; cnt[8]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.329 ns                ;
+; N/A                                     ; 220.02 MHz ( period = 4.545 ns )                    ; cnt[5]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.306 ns                ;
+; N/A                                     ; 220.12 MHz ( period = 4.543 ns )                    ; cnt[4]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.304 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 220.65 MHz ( period = 4.532 ns )                    ; pixel_count[4] ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.295 ns                ;
+; N/A                                     ; 221.48 MHz ( period = 4.515 ns )                    ; cnt[6]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.276 ns                ;
+; N/A                                     ; 221.78 MHz ( period = 4.509 ns )                    ; a              ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.271 ns                ;
+; N/A                                     ; 222.12 MHz ( period = 4.502 ns )                    ; cnt[9]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.263 ns                ;
+; N/A                                     ; 222.77 MHz ( period = 4.489 ns )                    ; cnt[7]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.250 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 223.26 MHz ( period = 4.479 ns )                    ; pixel_count[3] ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.242 ns                ;
+; N/A                                     ; 224.06 MHz ( period = 4.463 ns )                    ; cnt[4]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.224 ns                ;
+; N/A                                     ; 225.17 MHz ( period = 4.441 ns )                    ; line_count[6]  ; Y[7]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.192 ns                ;
+; N/A                                     ; 225.17 MHz ( period = 4.441 ns )                    ; line_count[6]  ; Y[8]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.192 ns                ;
+; N/A                                     ; 226.14 MHz ( period = 4.422 ns )                    ; cnt[9]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.183 ns                ;
+; N/A                                     ; 226.81 MHz ( period = 4.409 ns )                    ; cnt[7]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.170 ns                ;
+; N/A                                     ; 227.53 MHz ( period = 4.395 ns )                    ; cnt[1]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.156 ns                ;
+; N/A                                     ; 227.58 MHz ( period = 4.394 ns )                    ; cnt[8]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.155 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[0]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[1]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[2]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[3]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[4]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[5]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.21 MHz ( period = 4.382 ns )                    ; line_count[6]  ; Y[6]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 228.78 MHz ( period = 4.371 ns )                    ; cnt[5]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.132 ns                ;
+; N/A                                     ; 230.31 MHz ( period = 4.342 ns )                    ; cnt[9]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.103 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[6]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.36 MHz ( period = 4.341 ns )                    ; cnt[4]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.102 ns                ;
+; N/A                                     ; 230.68 MHz ( period = 4.335 ns )                    ; a              ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.097 ns                ;
+; N/A                                     ; 231.00 MHz ( period = 4.329 ns )                    ; cnt[7]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.090 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.48 MHz ( period = 4.320 ns )                    ; cnt[8]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.081 ns                ;
+; N/A                                     ; 231.75 MHz ( period = 4.315 ns )                    ; cnt[1]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.076 ns                ;
+; N/A                                     ; 233.05 MHz ( period = 4.291 ns )                    ; cnt[9]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.052 ns                ;
+; N/A                                     ; 233.05 MHz ( period = 4.291 ns )                    ; cnt[9]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.052 ns                ;
+; N/A                                     ; 233.05 MHz ( period = 4.291 ns )                    ; cnt[5]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.052 ns                ;
+; N/A                                     ; 233.05 MHz ( period = 4.291 ns )                    ; cnt[9]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.052 ns                ;
+; N/A                                     ; 233.05 MHz ( period = 4.291 ns )                    ; cnt[9]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.052 ns                ;
+; N/A                                     ; 233.05 MHz ( period = 4.291 ns )                    ; cnt[9]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.052 ns                ;
+; N/A                                     ; 234.69 MHz ( period = 4.261 ns )                    ; cnt[6]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.022 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 234.85 MHz ( period = 4.258 ns )                    ; pixel_count[2] ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.021 ns                ;
+; N/A                                     ; 235.02 MHz ( period = 4.255 ns )                    ; a              ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.017 ns                ;
+; N/A                                     ; 235.35 MHz ( period = 4.249 ns )                    ; cnt[7]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.010 ns                ;
+; N/A                                     ; 235.57 MHz ( period = 4.245 ns )                    ; cnt[3]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.006 ns                ;
+; N/A                                     ; 237.47 MHz ( period = 4.211 ns )                    ; cnt[5]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.972 ns                ;
+; N/A                                     ; 238.44 MHz ( period = 4.194 ns )                    ; cnt[2]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.955 ns                ;
+; N/A                                     ; 239.18 MHz ( period = 4.181 ns )                    ; cnt[6]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.942 ns                ;
+; N/A                                     ; 239.52 MHz ( period = 4.175 ns )                    ; a              ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.937 ns                ;
+; N/A                                     ; 239.87 MHz ( period = 4.169 ns )                    ; cnt[7]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.930 ns                ;
+; N/A                                     ; 240.10 MHz ( period = 4.165 ns )                    ; cnt[3]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.926 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.20 MHz ( period = 4.146 ns )                    ; line_count[8]  ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.907 ns                ;
+; N/A                                     ; 241.49 MHz ( period = 4.141 ns )                    ; cnt[1]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.902 ns                ;
+; N/A                                     ; 242.07 MHz ( period = 4.131 ns )                    ; cnt[5]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.892 ns                ;
+; N/A                                     ; 242.84 MHz ( period = 4.118 ns )                    ; cnt[7]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.879 ns                ;
+; N/A                                     ; 242.84 MHz ( period = 4.118 ns )                    ; cnt[7]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.879 ns                ;
+; N/A                                     ; 242.84 MHz ( period = 4.118 ns )                    ; cnt[7]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.879 ns                ;
+; N/A                                     ; 243.07 MHz ( period = 4.114 ns )                    ; cnt[2]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.875 ns                ;
+; N/A                                     ; 243.84 MHz ( period = 4.101 ns )                    ; cnt[6]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.862 ns                ;
+; N/A                                     ; 244.20 MHz ( period = 4.095 ns )                    ; a              ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.857 ns                ;
+; N/A                                     ; 244.26 MHz ( period = 4.094 ns )                    ; line_count[8]  ; Y[7]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.845 ns                ;
+; N/A                                     ; 244.26 MHz ( period = 4.094 ns )                    ; line_count[8]  ; Y[8]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.845 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[8]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[9]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.46 MHz ( period = 4.074 ns )                    ; cnt[0]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.835 ns                ;
+; N/A                                     ; 245.76 MHz ( period = 4.069 ns )                    ; cnt[6]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.830 ns                ;
+; N/A                                     ; 245.76 MHz ( period = 4.069 ns )                    ; cnt[6]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.830 ns                ;
+; N/A                                     ; 245.76 MHz ( period = 4.069 ns )                    ; cnt[6]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.830 ns                ;
+; N/A                                     ; 245.76 MHz ( period = 4.069 ns )                    ; cnt[6]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.830 ns                ;
+; N/A                                     ; 245.82 MHz ( period = 4.068 ns )                    ; cnt[5]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.829 ns                ;
+; N/A                                     ; 245.82 MHz ( period = 4.068 ns )                    ; cnt[5]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.829 ns                ;
+; N/A                                     ; 245.82 MHz ( period = 4.068 ns )                    ; cnt[5]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.829 ns                ;
+; N/A                                     ; 245.82 MHz ( period = 4.068 ns )                    ; cnt[5]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.829 ns                ;
+; N/A                                     ; 246.24 MHz ( period = 4.061 ns )                    ; cnt[1]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.822 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[0]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[1]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[2]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[3]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[4]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[5]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 247.83 MHz ( period = 4.035 ns )                    ; line_count[8]  ; Y[6]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.785 ns                ;
+; N/A                                     ; 249.07 MHz ( period = 4.015 ns )                    ; a              ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.777 ns                ;
+; N/A                                     ; 250.56 MHz ( period = 3.991 ns )                    ; cnt[3]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.752 ns                ;
+; N/A                                     ; 251.19 MHz ( period = 3.981 ns )                    ; cnt[1]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.742 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[1]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[6]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[5]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[3]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.21 MHz ( period = 3.965 ns )                    ; cnt[3]         ; cnt[0]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.726 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 252.84 MHz ( period = 3.955 ns )                    ; pixel_count[1] ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.718 ns                ;
+; N/A                                     ; 253.81 MHz ( period = 3.940 ns )                    ; cnt[2]         ; cnt[7]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.701 ns                ;
+; N/A                                     ; 254.13 MHz ( period = 3.935 ns )                    ; a              ; cnt[2]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.697 ns                ;
+; N/A                                     ; 254.52 MHz ( period = 3.929 ns )                    ; line_count[5]  ; Y[7]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 254.52 MHz ( period = 3.929 ns )                    ; line_count[5]  ; Y[8]          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 256.34 MHz ( period = 3.901 ns )                    ; cnt[1]         ; cnt[4]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.662 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[9] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; line_count[6]  ; line_count[0] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[6] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[8] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[7] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; N/A                                     ; 257.80 MHz ( period = 3.879 ns )                    ; pixel_count[0] ; line_count[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.642 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                ;               ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------+---------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                         ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+----------+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From   ; To       ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+----------+------------+
+; N/A                                     ; None                                                ; 21.821 ns  ; cnt[3] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.768 ns  ; cnt[4] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.755 ns  ; cnt[8] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.675 ns  ; cnt[6] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.637 ns  ; cnt[2] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.596 ns  ; cnt[5] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.580 ns  ; cnt[3] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.580 ns  ; cnt[3] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.550 ns  ; cnt[3] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.550 ns  ; cnt[3] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.527 ns  ; cnt[4] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.527 ns  ; cnt[4] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.514 ns  ; cnt[8] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.514 ns  ; cnt[8] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.497 ns  ; cnt[4] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.497 ns  ; cnt[4] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.491 ns  ; cnt[0] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.484 ns  ; cnt[8] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.484 ns  ; cnt[8] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.434 ns  ; cnt[6] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.434 ns  ; cnt[6] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.408 ns  ; cnt[1] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.404 ns  ; cnt[6] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.404 ns  ; cnt[6] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.396 ns  ; cnt[2] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.396 ns  ; cnt[2] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.366 ns  ; cnt[2] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.366 ns  ; cnt[2] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.355 ns  ; cnt[5] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.355 ns  ; cnt[5] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.330 ns  ; cnt[3] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.330 ns  ; cnt[3] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.325 ns  ; cnt[5] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.325 ns  ; cnt[5] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.277 ns  ; cnt[4] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.277 ns  ; cnt[4] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.264 ns  ; cnt[8] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.264 ns  ; cnt[8] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.250 ns  ; cnt[0] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.250 ns  ; cnt[0] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.249 ns  ; cnt[3] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.232 ns  ; cnt[3] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.228 ns  ; cnt[7] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.220 ns  ; cnt[0] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.220 ns  ; cnt[0] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.196 ns  ; cnt[4] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.184 ns  ; cnt[6] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.184 ns  ; cnt[6] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.183 ns  ; cnt[8] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.179 ns  ; cnt[4] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.167 ns  ; cnt[1] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.167 ns  ; cnt[1] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.166 ns  ; cnt[8] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.146 ns  ; cnt[2] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.146 ns  ; cnt[2] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.137 ns  ; cnt[1] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.137 ns  ; cnt[1] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.105 ns  ; cnt[5] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.105 ns  ; cnt[5] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.103 ns  ; cnt[6] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.086 ns  ; cnt[6] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.065 ns  ; cnt[2] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.048 ns  ; cnt[2] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.024 ns  ; cnt[5] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.007 ns  ; cnt[5] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.000 ns  ; cnt[0] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 21.000 ns  ; cnt[0] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.987 ns  ; cnt[7] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.987 ns  ; cnt[7] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.960 ns  ; cnt[3] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.957 ns  ; cnt[7] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.957 ns  ; cnt[7] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.919 ns  ; cnt[0] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.917 ns  ; cnt[1] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.917 ns  ; cnt[1] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.907 ns  ; cnt[4] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.902 ns  ; cnt[0] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.894 ns  ; cnt[8] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.836 ns  ; cnt[1] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.819 ns  ; cnt[1] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.814 ns  ; cnt[6] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.776 ns  ; cnt[2] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.737 ns  ; cnt[7] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.737 ns  ; cnt[7] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.735 ns  ; cnt[5] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.656 ns  ; cnt[7] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.639 ns  ; cnt[7] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.630 ns  ; cnt[0] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.547 ns  ; cnt[1] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.367 ns  ; cnt[7] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 20.032 ns  ; Y[1]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.857 ns  ; Y[6]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.856 ns  ; Y[0]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.791 ns  ; Y[1]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.791 ns  ; Y[1]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.761 ns  ; Y[1]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.761 ns  ; Y[1]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.688 ns  ; Y[4]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.663 ns  ; Y[2]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.635 ns  ; cnt[9] ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.616 ns  ; Y[6]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.616 ns  ; Y[6]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.615 ns  ; Y[0]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.615 ns  ; Y[0]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.590 ns  ; Y[3]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.586 ns  ; Y[6]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.586 ns  ; Y[6]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.585 ns  ; Y[0]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.585 ns  ; Y[0]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.541 ns  ; Y[1]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.541 ns  ; Y[1]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.469 ns  ; X[7]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.460 ns  ; Y[1]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.447 ns  ; Y[4]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.447 ns  ; Y[4]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.443 ns  ; Y[1]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.422 ns  ; Y[2]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.422 ns  ; Y[2]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.417 ns  ; Y[4]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.417 ns  ; Y[4]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.394 ns  ; cnt[9] ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.394 ns  ; cnt[9] ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.392 ns  ; Y[2]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.392 ns  ; Y[2]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.366 ns  ; Y[6]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.366 ns  ; Y[6]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.365 ns  ; Y[0]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.365 ns  ; Y[0]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.364 ns  ; cnt[9] ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.364 ns  ; cnt[9] ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.349 ns  ; Y[3]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.349 ns  ; Y[3]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.319 ns  ; Y[3]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.319 ns  ; Y[3]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.313 ns  ; Y[5]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.285 ns  ; Y[6]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.284 ns  ; Y[0]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.268 ns  ; Y[6]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.267 ns  ; Y[0]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.228 ns  ; X[7]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.228 ns  ; X[7]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.198 ns  ; X[7]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.198 ns  ; X[7]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.197 ns  ; Y[4]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.197 ns  ; Y[4]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.188 ns  ; Y[7]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.179 ns  ; X[8]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.172 ns  ; Y[2]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.172 ns  ; Y[2]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.171 ns  ; Y[1]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.144 ns  ; cnt[9] ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.144 ns  ; cnt[9] ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.116 ns  ; Y[4]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.099 ns  ; Y[4]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.099 ns  ; Y[3]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.099 ns  ; Y[3]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.091 ns  ; Y[2]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.074 ns  ; Y[2]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.072 ns  ; Y[5]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.072 ns  ; Y[5]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.063 ns  ; cnt[9] ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.046 ns  ; cnt[9] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.042 ns  ; Y[5]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.042 ns  ; Y[5]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.018 ns  ; Y[3]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 19.001 ns  ; Y[3]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.996 ns  ; Y[6]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.995 ns  ; Y[0]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.978 ns  ; X[7]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.978 ns  ; X[7]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.947 ns  ; Y[7]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.947 ns  ; Y[7]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.938 ns  ; X[8]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.938 ns  ; X[8]   ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.917 ns  ; Y[7]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.917 ns  ; Y[7]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.908 ns  ; X[8]   ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.908 ns  ; X[8]   ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.897 ns  ; X[7]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.880 ns  ; X[7]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.827 ns  ; Y[4]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.822 ns  ; Y[5]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.822 ns  ; Y[5]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.802 ns  ; Y[2]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.794 ns  ; X[5]   ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.774 ns  ; cnt[9] ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.741 ns  ; Y[5]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.729 ns  ; Y[3]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.724 ns  ; Y[5]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.697 ns  ; Y[7]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.697 ns  ; Y[7]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.688 ns  ; X[8]   ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.688 ns  ; X[8]   ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.616 ns  ; Y[7]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.608 ns  ; X[7]   ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.607 ns  ; X[8]   ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.599 ns  ; Y[7]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.590 ns  ; X[8]   ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.553 ns  ; X[5]   ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 18.553 ns  ; X[5]   ; VGA_R[2] ; CLOCK_50   ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;        ;          ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+--------+----------+------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Wed Dec 28 20:49:46 2016
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off de1_top -c de1_top --timing_analysis_only
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK_50" is an undefined clock
+Warning: Found 2 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "clk_div2:comb_3|o_clk" as buffer
+    Info: Detected ripple clock "vblank" as buffer
+Info: Clock "CLOCK_50" has Internal fmax of 180.73 MHz between source register "line_count[6]" and destination register "vblank" (period= 5.533 ns)
+    Info: + Longest register to register delay is 2.512 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X38_Y15_N23; Fanout = 5; REG Node = 'line_count[6]'
+        Info: 2: + IC(0.955 ns) + CELL(0.512 ns) = 1.467 ns; Loc. = LCCOMB_X39_Y15_N2; Fanout = 2; COMB Node = 'always0~2'
+        Info: 3: + IC(0.298 ns) + CELL(0.177 ns) = 1.942 ns; Loc. = LCCOMB_X39_Y15_N10; Fanout = 10; COMB Node = 'LessThan3~0'
+        Info: 4: + IC(0.297 ns) + CELL(0.177 ns) = 2.416 ns; Loc. = LCCOMB_X39_Y15_N4; Fanout = 1; COMB Node = 'vblank~0'
+        Info: 5: + IC(0.000 ns) + CELL(0.096 ns) = 2.512 ns; Loc. = LCFF_X39_Y15_N5; Fanout = 1; REG Node = 'vblank'
+        Info: Total cell delay = 0.962 ns ( 38.30 % )
+        Info: Total interconnect delay = 1.550 ns ( 61.70 % )
+    Info: - Smallest clock skew is -2.782 ns
+        Info: + Shortest clock path from clock "CLOCK_50" to destination register is 4.649 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.805 ns) + CELL(0.879 ns) = 3.710 ns; Loc. = LCFF_X39_Y15_N19; Fanout = 2; REG Node = 'clk_div2:comb_3|o_clk'
+            Info: 3: + IC(0.337 ns) + CELL(0.602 ns) = 4.649 ns; Loc. = LCFF_X39_Y15_N5; Fanout = 1; REG Node = 'vblank'
+            Info: Total cell delay = 2.507 ns ( 53.93 % )
+            Info: Total interconnect delay = 2.142 ns ( 46.07 % )
+        Info: - Longest clock path from clock "CLOCK_50" to source register is 7.431 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.805 ns) + CELL(0.879 ns) = 3.710 ns; Loc. = LCFF_X39_Y15_N19; Fanout = 2; REG Node = 'clk_div2:comb_3|o_clk'
+            Info: 3: + IC(2.121 ns) + CELL(0.000 ns) = 5.831 ns; Loc. = CLKCTRL_G0; Fanout = 41; COMB Node = 'clk_div2:comb_3|o_clk~clkctrl'
+            Info: 4: + IC(0.998 ns) + CELL(0.602 ns) = 7.431 ns; Loc. = LCFF_X38_Y15_N23; Fanout = 5; REG Node = 'line_count[6]'
+            Info: Total cell delay = 2.507 ns ( 33.74 % )
+            Info: Total interconnect delay = 4.924 ns ( 66.26 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tco from clock "CLOCK_50" to destination pin "VGA_R[1]" through register "cnt[3]" is 21.821 ns
+    Info: + Longest clock path from clock "CLOCK_50" to source register is 8.753 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.805 ns) + CELL(0.879 ns) = 3.710 ns; Loc. = LCFF_X39_Y15_N19; Fanout = 2; REG Node = 'clk_div2:comb_3|o_clk'
+        Info: 3: + IC(0.337 ns) + CELL(0.879 ns) = 4.926 ns; Loc. = LCFF_X39_Y15_N5; Fanout = 1; REG Node = 'vblank'
+        Info: 4: + IC(2.250 ns) + CELL(0.000 ns) = 7.176 ns; Loc. = CLKCTRL_G13; Fanout = 11; COMB Node = 'vblank~clkctrl'
+        Info: 5: + IC(0.975 ns) + CELL(0.602 ns) = 8.753 ns; Loc. = LCFF_X40_Y16_N7; Fanout = 10; REG Node = 'cnt[3]'
+        Info: Total cell delay = 3.386 ns ( 38.68 % )
+        Info: Total interconnect delay = 5.367 ns ( 61.32 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 12.791 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X40_Y16_N7; Fanout = 10; REG Node = 'cnt[3]'
+        Info: 2: + IC(0.663 ns) + CELL(0.517 ns) = 1.180 ns; Loc. = LCCOMB_X39_Y16_N2; Fanout = 2; COMB Node = 'put_ball:comb_292|Add2~1'
+        Info: 3: + IC(0.000 ns) + CELL(0.458 ns) = 1.638 ns; Loc. = LCCOMB_X39_Y16_N4; Fanout = 1; COMB Node = 'put_ball:comb_292|Add2~2'
+        Info: 4: + IC(1.219 ns) + CELL(0.517 ns) = 3.374 ns; Loc. = LCCOMB_X39_Y17_N22; Fanout = 1; COMB Node = 'put_ball:comb_292|LessThan3~11'
+        Info: 5: + IC(0.000 ns) + CELL(0.080 ns) = 3.454 ns; Loc. = LCCOMB_X39_Y17_N24; Fanout = 1; COMB Node = 'put_ball:comb_292|LessThan3~13'
+        Info: 6: + IC(0.000 ns) + CELL(0.080 ns) = 3.534 ns; Loc. = LCCOMB_X39_Y17_N26; Fanout = 1; COMB Node = 'put_ball:comb_292|LessThan3~15'
+        Info: 7: + IC(0.000 ns) + CELL(0.458 ns) = 3.992 ns; Loc. = LCCOMB_X39_Y17_N28; Fanout = 1; COMB Node = 'put_ball:comb_292|LessThan3~16'
+        Info: 8: + IC(0.286 ns) + CELL(0.178 ns) = 4.456 ns; Loc. = LCCOMB_X39_Y17_N2; Fanout = 1; COMB Node = 'put_ball:comb_292|rom_mux_output~0'
+        Info: 9: + IC(0.299 ns) + CELL(0.491 ns) = 5.246 ns; Loc. = LCCOMB_X39_Y17_N8; Fanout = 1; COMB Node = 'put_ball:comb_292|rom_mux_output~3'
+        Info: 10: + IC(1.918 ns) + CELL(0.322 ns) = 7.486 ns; Loc. = LCCOMB_X19_Y17_N8; Fanout = 10; COMB Node = 'put_ball:comb_292|rom_mux_output~7'
+        Info: 11: + IC(2.319 ns) + CELL(2.986 ns) = 12.791 ns; Loc. = PIN_C9; Fanout = 0; PIN Node = 'VGA_R[1]'
+        Info: Total cell delay = 6.087 ns ( 47.59 % )
+        Info: Total interconnect delay = 6.704 ns ( 52.41 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 176 megabytes
+    Info: Processing ended: Wed Dec 28 20:49:47 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
